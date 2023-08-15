@@ -1289,7 +1289,12 @@ static int exynos5_i2c_probe(struct platform_device *pdev)
 	}
 
 	ret = devm_request_irq(&pdev->dev, i2c->irq, exynos5_i2c_irq,
-				IRQF_NO_SUSPEND, dev_name(&pdev->dev), i2c);
+#ifdef CONFIG_SOC_GS201
+			       IRQF_NOBALANCING | IRQF_NO_SUSPEND,
+#else
+			       IRQF_NO_SUSPEND,
+#endif
+			       dev_name(&pdev->dev), i2c);
 	disable_irq(i2c->irq);
 
 	if (ret != 0) {
