@@ -21,6 +21,7 @@
 #define EDGETPU_TELEMETRY_TRACE_BUFFER_SIZE (64 * 4096)
 #define EDGETPU_TELEMETRY_HWTRACE_BUFFER_DEFAULT_SIZE (SZ_1M * 64)
 
+#if IS_ENABLED(CONFIG_EDGETPU_TELEMETRY_TRACE)
 /*
  * HWTRACE (and other optional debug features) use the 32-bit IOVA space above the FW carveout
  * remap region.
@@ -82,5 +83,51 @@ void edgetpu_telemetry_mappings_show(struct edgetpu_dev *etdev,
  */
 int edgetpu_mmap_telemetry_buffer(struct edgetpu_dev *etdev, struct gcip_telemetry *tel,
 				  struct vm_area_struct *vma);
+#else
+static inline
+bool edgetpu_telemetry_mapped(struct gcip_telemetry *tel)
+{
+	return false;
+}
+static inline
+int edgetpu_telemetry_init(struct edgetpu_dev *etdev)
+{
+	return 0;
+}
+static inline
+void edgetpu_telemetry_exit(struct edgetpu_dev *etdev)
+{
+}
+static inline
+int edgetpu_telemetry_kci(struct edgetpu_dev *etdev)
+{
+	return 0;
+}
+static inline
+int edgetpu_telemetry_set_event(struct edgetpu_dev *etdev, struct gcip_telemetry *tel,
+				u32 eventfd)
+{
+	return 0;
+}
+static inline
+void edgetpu_telemetry_unset_event(struct edgetpu_dev *etdev, struct gcip_telemetry *tel)
+{
+}
+static inline
+void edgetpu_telemetry_irq_handler(struct edgetpu_dev *etdev)
+{
+}
+static inline
+void edgetpu_telemetry_mappings_show(struct edgetpu_dev *etdev,
+				     struct seq_file *s)
+{
+}
+static inline
+int edgetpu_mmap_telemetry_buffer(struct edgetpu_dev *etdev, struct gcip_telemetry *tel,
+				  struct vm_area_struct *vma)
+{
+	return -ENODEV;
+}
+#endif
 
 #endif /* __EDGETPU_TELEMETRY_H__ */
