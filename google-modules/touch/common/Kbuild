@@ -5,6 +5,7 @@ ccflags-y += -I$(ROOT_DIR)/private/google-modules/display
 ccflags-y += -I$(ROOT_DIR)/private/google-modules/display/common/include
 ccflags-y += -I$(ROOT_DIR)/private/google-modules/display/samsung/include/uapi
 ccflags-y += -I$(ROOT_DIR)/private/google-modules/aoc
+include $(srctree)/google-modules/soc/gs/Makefile.include
 obj-$(CONFIG_TOUCHSCREEN_TBN)		+= touch_bus_negotiator.o
 obj-$(CONFIG_TOUCHSCREEN_HEATMAP)	+= heatmap.o
 obj-$(CONFIG_TOUCHSCREEN_OFFLOAD)	+= touch_offload.o
