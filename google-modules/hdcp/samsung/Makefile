@@ -2,8 +2,6 @@ M ?= $(shell pwd)
 
 KBASE_PATH_RELATIVE = $(M)
 
-EXTRA_CFLAGS += -Werror
-
 include $(ROOT_DIR)/private/google-modules/soc/gs/Makefile.include
 
 KBUILD_OPTIONS  += CONFIG_EXYNOS_HDCP2=m
