@@ -1,3 +1,4 @@
+CONFIG_KCONFIG_EXT_ZUMA=y
 # In-tree kernel configs. Note that these configs are only applied to
 # non-GKI modules. Make sure they're compatible with GKI.
 CONFIG_LOG_BUF_SHIFT=22
