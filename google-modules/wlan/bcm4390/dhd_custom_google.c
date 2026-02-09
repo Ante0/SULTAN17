@@ -164,9 +164,9 @@ extern void exynos_pcie_set_skip_config(int ch_num, bool val);
 extern void google_pcie_dump_debug(int num);
 #endif /* CONFIG_SOC_LGA */
 
-#ifdef DHD_COREDUMP
 #define DEVICE_NAME "wlan"
 
+#ifdef DHD_COREDUMP
 static void sscd_release(struct device *dev);
 static struct sscd_platform_data sscd_pdata;
 static struct platform_device sscd_dev = {
@@ -178,6 +178,7 @@ static struct platform_device sscd_dev = {
 		.release       = sscd_release,
 		},
 };
+#endif /* DHD_COREDUMP */
 
 /* Google PCIe interface */
 static int pcie_ch_num = GOOGLE_PCIE_CH_NUM;
@@ -355,6 +356,7 @@ void _pcie_deregister_event(void *plat_info)
 }
 #endif /* !IS_ENABLED(CONFIG_PCI_EXYNOS_GS) */
 
+#ifdef DHD_COREDUMP
 static void sscd_release(struct device *dev)
 {
 	DHD_INFO(("%s: enter\n", __func__));

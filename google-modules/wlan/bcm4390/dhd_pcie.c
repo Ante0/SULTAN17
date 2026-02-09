@@ -15158,6 +15158,7 @@ dhdpcie_wait_readshared_area_addr(dhd_bus_t *bus, uint32 *share_addr)
 
 		bus->dhd->arm_assert_phy_addr = (uint32)-1;
 		if (addr != (uint32)-1) {	/* skip further PCIE reads if read this addr */
+#if defined(DHD_FW_COREDUMP)
 			if (bus->dhd->memdump_enabled) {
 #ifdef DHD_SDTC_ETB_DUMP
 				bus->dhd->collect_sdtc = TRUE;
@@ -15167,6 +15168,7 @@ dhdpcie_wait_readshared_area_addr(dhd_bus_t *bus, uint32 *share_addr)
 				bus->dhd->memdump_type = DUMP_TYPE_READ_SHM_FAIL;
 				dhdpcie_mem_dump(bus);
 			}
+#endif /* DHD_FW_COREDUMP */
 		}
 #if defined(NDIS)
 		/* This is a very common code path to catch f/w init failures.
