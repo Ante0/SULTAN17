@@ -274,6 +274,7 @@ static void destroy_zcomp_cookie_pool(struct zcomp *zcomp)
 
 static int flush_pending_io(struct zcomp *comp)
 {
+	struct zcomp_cookie *cookie, *tmp;
 	int err = 0;
 	LIST_HEAD(req_list);
 
@@ -282,11 +283,7 @@ static int flush_pending_io(struct zcomp *comp)
 	comp->pend_request = 0;
 	spin_unlock(&comp->request_lock);
 
-	while (!list_empty(&req_list)) {
-		struct zcomp_cookie *cookie;
-
-		cookie = list_last_entry(&req_list, struct zcomp_cookie, list);
-		list_del(&cookie->list);
+	list_for_each_entry_safe_reverse(cookie, tmp, &req_list, list) {
 		if (comp->op->compress_async(comp, cookie->page, cookie)) {
 			if (cookie->bio)
 				bio_io_error(cookie->bio);
