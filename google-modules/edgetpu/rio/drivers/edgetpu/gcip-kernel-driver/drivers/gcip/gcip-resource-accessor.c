@@ -257,13 +257,8 @@ struct gcip_resource_accessor *gcip_resource_accessor_create(struct device *dev,
 
 	dentry = debugfs_create_file(RESOURCE_ACCESSOR, 0600, parent_dentry, accessor,
 				     &fops_gcip_resource_accessor);
-
-	if (IS_ERR(dentry)) {
-		devm_kfree(dev, accessor);
-		return ERR_CAST(dentry);
-	}
-
-	accessor->dentry = dentry;
+	if (!IS_ERR(dentry))
+		accessor->dentry = dentry;
 
 	return accessor;
 }
