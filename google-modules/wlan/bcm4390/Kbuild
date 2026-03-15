@@ -112,7 +112,7 @@ ifeq ($(CONFIG_BCMDHD),)
   WONDER_DIR=$(ROOT_DIR)/private/google-modules/wlan/wonder
   ifneq ($(wildcard $(WONDER_DIR)),)
   CONFIG_WONDERTAP=y
-    ifeq ($(CONFIG_WONDERTAP),y)
+    ifeq ($(CONFIG_WONDERTAP),n)
       DHDCFLAGS += -I$(WONDER_DIR)/include
       DHDCFLAGS += -DWONDERTAP
     endif
