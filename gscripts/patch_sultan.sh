@@ -254,10 +254,14 @@ patch_susfs_ksu_next() {
 }
 
 patch_sultan() {
-	msg "Applying Sultan specific patches (fs/namespace.c and kernel/sys.c)"
+	msg "Applying Sultan specific patches (fs/namespace.c, kernel/sys.c, fs/super.c)"
 	apply_patch_optional \
 		"$KERNEL_REPO" \
 		"$KERNEL_REPO/sultan_patches/fixer.patch"
+
+	apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO/sultan_patches/fix_super.c.patch"
 }
 
 patch_vpnhide() {
