@@ -17,7 +17,7 @@ jobs:
       next_sha: ${{ steps.check.outputs.next_sha }}
       susfs_sha: ${{ steps.check.outputs.susfs_sha }}
       nomount_sha: ${{ steps.check.outputs.nomount_sha }}
-      vpnhide_sha: ${{ steps.check.outputs.vpnhide_sha }}
+      vpnhide_sha: ${{ steps.check.outputs.vpnhide_sha }} 
       release_notes: ${{ steps.check.outputs.release_notes }}
 
     steps:
@@ -70,8 +70,28 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
-          path: dist
-          merge-multiple: true
+          path: artifacts
+
+      - name: Package release ZIPs
+        run: |
+          mkdir -p dist
+
+          for AKDIR in artifacts/SULTAN17_*; do
+            [[ -d "$AKDIR" ]] || continue
+
+            NAME="$(basename "$AKDIR")"
+
+            (
+              cd "$AKDIR"
+              zip -r9 "../../dist/${NAME}.zip" . \
+                -x ".git/*" \
+                -x ".github/*" \
+                -x "*.zip" \
+                -x "README.md"
+            )
+          done
+
+          ls -lh dist
 
       - name: Install GitHub CLI
         run: |
@@ -84,6 +104,7 @@ jobs:
       - name: Update Nightly release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_NOTES: ${{ needs.check.outputs.release_notes }}
         run: |
           ./gscripts/release-nightly.sh \
             "${{ needs.check.outputs.source_sha }}" \
@@ -92,4 +113,5 @@ jobs:
             "${{ needs.check.outputs.susfs_sha }}" \
             "${{ needs.check.outputs.nomount_sha }}" \
             "${{ needs.check.outputs.vpnhide_sha }}" \
-            "${{ needs.check.outputs.release_notes }}"
+            "$RELEASE_NOTES"
+            
