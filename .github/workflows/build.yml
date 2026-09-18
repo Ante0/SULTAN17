@@ -2,11 +2,11 @@ name: Build Kernel
 
 on:
   workflow_call:
-    branch:
-      required: true
-      type: string
-
     inputs:
+      branch:
+        required: true
+        type: string
+
       target:
         required: true
         type: string
