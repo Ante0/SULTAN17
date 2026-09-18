@@ -104,7 +104,7 @@ IFS=$'\t' read -r NEW_NOMOUNT NOMOUNT_MSG \
     < <(github_commit_info "$NOMOUNT_REPO" "$NOMOUNT_BRANCH" "kernel")
 
 IFS=$'\t' read -r NEW_VPNHIDE VPNHIDE_MSG \
-    < <(github_commit_info "$VPNHIDE_REPO" "$VPNHIDE_BRANCH" "kpatch")
+    < <(github_commit_info "$VPNHIDE_REPO" "$VPNHIDE_BRANCH" "builtin")
 
 NEW_SOURCE="$(git rev-parse HEAD)"
 SOURCE_MSG="$(git log -1 --pretty=%s)"

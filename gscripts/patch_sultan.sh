@@ -10,7 +10,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${SCRIPT_DIR}/config.sh"
 
 if [ $# -ne 2 ]; then
-    echo "Usage: $0 <gs201|zuma|zumapro> <ksu-susfs|ksu-susfs-nomount|ksu-next-susfs|ksu-next-susfs-nomount"
+    echo "Usage: $0 <gs201|zuma|zumapro> <ksu-susfs|ksu-susfs-vpnhide|ksu-next-susfs|ksu-next-susfs-vpnhide"
     exit 1
 fi
 
@@ -273,8 +273,48 @@ patch_sultan() {
 }
 
 patch_vpnhide() {
-	msg "Applying VPNHide"
-	bash "$KERNEL_REPO/vpnhide_next_backend/kpatch/scripts/apply.sh" "$KERNEL_REPO/" "android14-6.1"
+        msg "Applying VPNHide"
+        cp "$KERNEL_REPO"/vpnhide/builtin/include/linux/vpnhide.h "$KERNEL_REPO"/include/linux/
+        cp -r "$KERNEL_REPO"/vpnhide/builtin/security/vpnhide "$KERNEL_REPO"/security/
+        apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/fs_namei.c.patch
+        apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/fs_readdir.c.patch
+        apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/fs_stat.c.patch
+        apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/net_core_dev_ioctl.c.patch
+        apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/net_core_fib_rules.c.patch
+        apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/net_core_rtnetlink.c.patch
+        apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/net_ipv4_devinet.c.patch
+        apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/net_ipv4_fib_semantics.c.patch
+        apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/net_ipv4_fib_trie.c.patch
+        apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/net_ipv6_addrconf.c.patch
+        apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/net_ipv6_ip6_fib.c.patch
+        apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/net_ipv6_route.c.patch
+        apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/net_socket.c.patch
 }
 
 ######################################################
