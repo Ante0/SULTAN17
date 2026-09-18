@@ -1,3 +1,0 @@
-# Minimum set of rules for vendor_dlkm partition
-/vendor_dlkm(/.*)?                 u:object_r:vendor_file:s0
-/vendor_dlkm/lib/modules/.*\.ko    u:object_r:vendor_kernel_modules:s0

@@ -1,6 +1,0 @@
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# Copyright (C) 2024 Google LLC
-
-build:stallion --config=zumapro_base
-build:stallion --//private/devices/google/common:kernel=//private/devices/google/stallion:stallion/kernel

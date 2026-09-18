@@ -1,1 +1,0 @@
-../core/bmi/src/i_ar6320v2_regtable.h

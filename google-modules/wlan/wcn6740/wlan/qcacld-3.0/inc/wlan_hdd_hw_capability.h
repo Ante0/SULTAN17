@@ -1,1 +1,0 @@
-../core/hdd/src/wlan_hdd_hw_capability.h

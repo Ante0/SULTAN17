@@ -1,4 +1,0 @@
-# SPDX-License-Identifier: GPL-2.0
-
-obj-$(CONFIG_DRM_PANEL_GOOGLE_AK3A)     += panel-google-ak3a.o
-obj-$(CONFIG_DRM_PANEL_GOOGLE_AK3B)     += panel-google-ak3b.o

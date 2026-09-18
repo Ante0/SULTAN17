@@ -1,1 +1,0 @@
-../components/pmo/dispatcher/inc/wlan_pmo_gpio_wakeup_cfg.h

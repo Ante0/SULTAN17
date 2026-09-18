@@ -1,1 +1,0 @@
-../core/mac/src/include/sir_params.h

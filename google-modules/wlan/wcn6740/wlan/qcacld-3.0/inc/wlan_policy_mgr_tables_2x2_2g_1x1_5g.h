@@ -1,1 +1,0 @@
-../components/cmn_services/policy_mgr/src/wlan_policy_mgr_tables_2x2_2g_1x1_5g.h

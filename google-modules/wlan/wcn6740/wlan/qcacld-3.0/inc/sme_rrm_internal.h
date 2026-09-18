@@ -1,1 +1,0 @@
-../core/sme/inc/sme_rrm_internal.h

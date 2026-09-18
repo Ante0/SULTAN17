@@ -1,4 +1,0 @@
-# SPDX-License-Identifier: GPL-2.0
-
-# ARM Architecture
-obj-$(CONFIG_PWM_EXYNOS)       += pwm-exynos.o

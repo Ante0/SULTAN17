@@ -1,1 +1,0 @@
-../uapi/linux/a_types.h

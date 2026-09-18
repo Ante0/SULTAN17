@@ -1,1 +1,0 @@
-../core/hdd/inc/wlan_hdd_regulatory.h

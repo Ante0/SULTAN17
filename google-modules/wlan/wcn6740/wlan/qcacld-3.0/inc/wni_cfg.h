@@ -1,1 +1,0 @@
-../core/mac/inc/wni_cfg.h

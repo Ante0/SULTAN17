@@ -1,1 +1,0 @@
-../components/umac/twt/dispatcher/inc/wlan_twt_tgt_if_ext_tx_api.h

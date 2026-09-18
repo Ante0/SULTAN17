@@ -1,1 +1,0 @@
-../os_if/interop_issues_ap/inc/wlan_cfg80211_interop_issues_ap.h

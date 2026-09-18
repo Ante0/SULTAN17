@@ -1,4 +1,0 @@
-# SPDX-License-Identifier: GPL-2.0
-
-obj-$(CONFIG_DRM_PANEL_BOE_TS110F5MLG0)		+= panel-boe-ts110f5mlg0.o
-obj-$(CONFIG_DRM_PANEL_CSOT_PPA957DB2D)		+= panel-csot-ppa957db2d.o

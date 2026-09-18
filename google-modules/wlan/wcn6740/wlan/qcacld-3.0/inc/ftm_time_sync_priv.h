@@ -1,1 +1,0 @@
-../components/ftm_time_sync/core/inc/ftm_time_sync_priv.h

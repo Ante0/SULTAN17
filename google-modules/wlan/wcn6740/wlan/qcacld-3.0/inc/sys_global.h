@@ -1,1 +1,0 @@
-../core/mac/src/include/sys_global.h

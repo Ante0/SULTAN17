@@ -1,3 +1,0 @@
-# SPDX-License-Identifier: GPL-2.0
-
-obj-$(CONFIG_GOOG_USI_STYLUS)		+= goog_usi_stylus.o

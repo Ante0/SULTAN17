@@ -1,3 +1,0 @@
-# SPDX-License-Identifier: GPL-2.0-only
-
-source "$(KCONFIG_EXT_MODULES_PREFIX)private/google-modules/touch/common/Kconfig"

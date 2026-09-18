@@ -1,1 +1,0 @@
-obj-$(CONFIG_EXYNOS_GRAPHICS_G2D) += g2d/

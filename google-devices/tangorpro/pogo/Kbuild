@@ -1,6 +1,0 @@
-# SPDX-License-Identifier: GPL-2.0
-
-subdir-ccflags-y += -I$(ROOT_DIR)/private/google-modules/bms
-subdir-ccflags-y += -I$(ROOT_DIR)/private/google-modules/soc/gs/drivers/usb/typec/tcpm/google
-
-obj-$(CONFIG_POGO_TRANSPORT)            += pogo_transport.o

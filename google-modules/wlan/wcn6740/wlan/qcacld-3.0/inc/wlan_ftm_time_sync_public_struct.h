@@ -1,1 +1,0 @@
-../components/ftm_time_sync/dispatcher/inc/wlan_ftm_time_sync_public_struct.h

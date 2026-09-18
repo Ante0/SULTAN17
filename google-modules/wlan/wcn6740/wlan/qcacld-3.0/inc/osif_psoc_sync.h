@@ -1,1 +1,0 @@
-../os_if/sync/inc/osif_psoc_sync.h

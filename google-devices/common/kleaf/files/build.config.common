@@ -1,9 +1,0 @@
-. ${ROOT_DIR}/${KERNEL_DIR}/build.config.common
-. ${ROOT_DIR}/${KERNEL_DIR}/build.config.aarch64
-
-DEFCONFIG=gki_defconfig
-
-BOOT_IMAGE_HEADER_VERSION=4
-TRIM_UNUSED_MODULES=1
-
-MKDTIMG_FLAGS="--page_size=4096 --id=/:board_id --rev=/:board_rev"

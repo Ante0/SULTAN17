@@ -1,6 +1,0 @@
-# SPDX-License-Identifier: GPL-2.0-or-later
-#
-# Copyright (C) 2022 Google LLC
-
-build:tangorpro --config=gs201_base
-build:tangorpro --//private/devices/google/common:kernel=//private/devices/google/tangorpro:tangorpro/kernel

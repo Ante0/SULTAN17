@@ -1,1 +1,0 @@
-../components/umac/mlme/wfa_config/dispatcher/inc/wlan_wfa_config_public_struct.h

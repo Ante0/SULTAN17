@@ -1,1 +1,0 @@
-../os_if/twt/inc/osif_twt_ext_rsp.h

@@ -1,6 +1,0 @@
-config BCM_GPS_SPI_DRIVER
-    tristate "BRCM GPS SPI driver"
-    depends on SPI
-    help
-        Support for BRCM GPS SPI driver.
-

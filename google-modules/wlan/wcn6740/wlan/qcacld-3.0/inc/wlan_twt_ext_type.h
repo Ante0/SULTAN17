@@ -1,1 +1,0 @@
-../components/umac/twt/dispatcher/inc/wlan_twt_ext_type.h

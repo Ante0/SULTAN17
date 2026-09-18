@@ -1,1 +1,0 @@
-../components/interop_issues_ap/dispatcher/inc/wlan_interop_issues_ap_public_structs.h

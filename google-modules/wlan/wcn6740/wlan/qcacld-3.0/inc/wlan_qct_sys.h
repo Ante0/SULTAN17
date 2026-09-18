@@ -1,1 +1,0 @@
-../core/mac/src/sys/common/inc/wlan_qct_sys.h

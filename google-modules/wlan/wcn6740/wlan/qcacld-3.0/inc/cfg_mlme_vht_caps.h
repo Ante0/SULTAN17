@@ -1,1 +1,0 @@
-../components/mlme/dispatcher/inc/cfg_mlme_vht_caps.h

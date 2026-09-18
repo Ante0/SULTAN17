@@ -1,5 +1,0 @@
-blocklist bcmdhd4389
-blocklist drv2624
-blocklist ftm5
-blocklist sec_touch
-blocklist dw3000-core-tests.ko

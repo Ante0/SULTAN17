@@ -1,1 +1,0 @@
-../core/sme/inc/csr_link_list.h

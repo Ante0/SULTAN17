@@ -1,1 +1,0 @@
-../core/hdd/inc/hdd_config.h

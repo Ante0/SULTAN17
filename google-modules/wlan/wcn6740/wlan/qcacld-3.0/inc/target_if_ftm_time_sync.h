@@ -1,1 +1,0 @@
-../components/target_if/ftm_time_sync/inc/target_if_ftm_time_sync.h

@@ -1,1 +1,0 @@
-../components/mlme/core/inc/wlan_mlme_vdev_mgr_interface.h

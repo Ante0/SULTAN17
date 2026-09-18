@@ -1,1 +1,0 @@
-../components/umac/twt/core/src/wlan_twt_cfg.h

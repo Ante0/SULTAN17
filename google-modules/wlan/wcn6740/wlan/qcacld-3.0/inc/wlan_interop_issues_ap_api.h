@@ -1,1 +1,0 @@
-../components/interop_issues_ap/core/inc/wlan_interop_issues_ap_api.h

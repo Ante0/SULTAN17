@@ -1,3 +1,0 @@
-# `-fdebug-info-for-profiling -mllvm --enable-npm-pgo-inline-deferral=false` is
-# used to generate vmlinux with debug info, which is used for experiment of b/322399357.
-KCFLAGS="${KCFLAGS} -fdebug-info-for-profiling -mllvm --enable-npm-pgo-inline-deferral=false"

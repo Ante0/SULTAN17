@@ -1,1 +1,0 @@
-../core/hdd/src/wlan_hdd_sysfs_wowl_del_ptrn.h

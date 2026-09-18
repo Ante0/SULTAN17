@@ -1,9 +1,0 @@
-// SPDX-License-Identifier: GPL-2.0-only
-/*
- * Tangorpro display-specific constants
- *
- * Copyright 2022 Google LLC.
- *
- */
-#define TANGORPRO_AVDD_MICROVOLT 5500000
-#define TANGORPRO_AVEE_MICROVOLT 5500000

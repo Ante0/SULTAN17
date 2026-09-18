@@ -1,1 +1,0 @@
-../core/hdd/inc/qc_sap_ioctl.h

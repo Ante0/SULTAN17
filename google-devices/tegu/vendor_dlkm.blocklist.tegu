@@ -1,5 +1,0 @@
-blocklist bcmdhd4383
-blocklist cs40l26_i2c
-blocklist pwm_exynos
-blocklist rt4539_bl
-blocklist syna_touch

@@ -1,6 +1,0 @@
-# SPDX-License-Identifier: GPL-2.0
-
-config GS_S2MPU
-	tristate "S2MPU driver"
-	depends on ARM64
-	depends on SOC_GS101

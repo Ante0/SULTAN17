@@ -1,2 +1,0 @@
-# Minimum set of rules for system_dlkm partition
-/system_dlkm(/.*)?                 u:object_r:system_dlkm_file:s0
