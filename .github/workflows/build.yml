@@ -2,6 +2,10 @@ name: Build Kernel
 
 on:
   workflow_call:
+    branch:
+      required: true
+      type: string
+
     inputs:
       target:
         required: true
@@ -13,7 +17,7 @@ on:
 
 jobs:
   build:
-    name: "${{ inputs.target }} • ${{ inputs.variant }}"
+    name: "${{ inputs.branch }} • ${{ inputs.target }} • ${{ inputs.variant }}"
     runs-on: ubuntu-latest
 
     permissions:
@@ -26,6 +30,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ inputs.branch }}
           submodules: recursive
 
       - name: Install dependencies
@@ -78,7 +83,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: SULTAN17_${{ inputs.target }}_${{ inputs.variant }}
+          name: Sultan_${{ inputs.branch }}_${{ inputs.target }}_${{ inputs.variant }}
           path: AnyKernel/*
           if-no-files-found: error
           compression-level: 0

@@ -49,6 +49,7 @@ jobs:
     uses: ./.github/workflows/build.yml
 
     with:
+      branch: ${{ matrix.branch }}
       target: ${{ matrix.target }}
       variant: ${{ matrix.variant }}
 
@@ -76,7 +77,7 @@ jobs:
         run: |
           mkdir -p dist
 
-          for AKDIR in artifacts/SULTAN17_*; do
+          for AKDIR in artifacts/Sultan_*; do
             [[ -d "$AKDIR" ]] || continue
 
             NAME="$(basename "$AKDIR")"
