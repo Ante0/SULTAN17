@@ -1,0 +1,8 @@
+#
+# SPDX-License-Identifier: GPL-2.0-only
+#
+
+config SUBSYSTEM_COREDUMP_TEST
+	tristate "Subsystem coredump test driver"
+	default n
+	depends on SUBSYSTEM_COREDUMP

@@ -1,0 +1,11 @@
+// SPDX-License-Identifier: GPL-2.0-only OR BSD-3-Clause
+/*
+ * Device tree source for Wonder.
+ *
+ * Copyright 2026 Google LLC
+ */
+
+&wonder_node {
+	// Remove this when the wonder is ready.
+	status = "disabled";
+};

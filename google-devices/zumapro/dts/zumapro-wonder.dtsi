@@ -1,0 +1,20 @@
+// SPDX-License-Identifier: GPL-2.0-only OR BSD-3-Clause
+/*
+ * Device tree source for Wonder.
+ *
+ * Copyright 2025 Google LLC
+ */
+
+/ {
+	wlan_node: wlan-device {
+		compatible = "android,bcmdhd_wlan-wonder";
+		status = "okay";
+	};
+
+	wonder_node: wonder-device {
+		compatible = "google,wonder-drv-v1";
+		wondertap-provider = <&wlan_node>;
+		status = "okay";
+	};
+};
+

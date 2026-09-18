@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: GPL-2.0
+
+ccflags-y += -I$(ROOT_DIR)/private/google-modules/display
+ccflags-y += -I$(ROOT_DIR)/private/google-modules/display/samsung/include/uapi
+ccflags-y += -I$(ROOT_DIR)/private/google-modules/touch/common
+ccflags-y += -I$(ROOT_DIR)/private/google-modules/touch/common/include
+ccflags-y += -I$(ROOT_DIR)/private/google-modules/touch/common/usi
+
+ifneq ($(CONFIG_TOUCHSCREEN_SPI_FLASH),)
+ccflags-y += -DSPI_FLASH=1
+else
+ccflags-y += -DSPI_FLASH=0
+endif
+
+obj-$(CONFIG_TOUCHSCREEN_NT36xxx_HOSTDL_SPI) = nvt_touch.o
+nvt_touch-objs += nt36xxx.o nt36xxx_fw_update.o nt36xxx_ext_proc.o \
+	nt36xxx_mp_ctrlram.o nt36xxx_ext_api.o nt36xxx_ext_usi.o \
+	nt36xxx_fw_update_gcm.o
+ifneq ($(CONFIG_SOC_GOOGLE),)
+nvt_touch-objs += nt36xxx_goog.o
+endif

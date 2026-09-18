@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: GPL-2.0
+
+obj-$(CONFIG_ABROLHOS)		+= abrolhos.o
+ccflags-y			+= -DCONFIG_EDGETPU_TELEMETRY_TRACE=1 -DCONFIG_ABROLHOS=1
+
+GIT_PATH=$(srctree)/$(src)
+ifeq ($(shell git -C $(GIT_PATH) rev-parse --is-inside-work-tree),true)
+	GIT_REPO_STATE=$(shell (git -C $(GIT_PATH) status --porcelain | grep -q .) && echo -dirty)
+	ccflags-y	+= -DGIT_REPO_TAG=\"$(shell git -C $(GIT_PATH) rev-parse --short HEAD)$(GIT_REPO_STATE)\"
+else
+	ccflags-y	+= -DGIT_REPO_TAG=\"Not\ a\ git\ repository\"
+endif
+ccflags-y	+= -I$(ROOT_DIR)/private/google-modules/power/mitigation -DCONFIG_GOOGLE_BCL
+
+edgetpu-objs	:= edgetpu-mailbox.o edgetpu-telemetry.o edgetpu-mapping.o edgetpu-dmabuf.o edgetpu-async.o edgetpu-iremap-pool.o edgetpu-sw-watchdog.o edgetpu-firmware.o edgetpu-firmware-util.o edgetpu-domain-pool.o
+
+mobile-objs	:= edgetpu-kci.o
+
+abrolhos-y	:= abrolhos-device.o abrolhos-device-group.o abrolhos-fs.o abrolhos-core.o abrolhos-platform.o abrolhos-firmware.o abrolhos-thermal.o abrolhos-pm.o abrolhos-iommu.o abrolhos-usage-stats.o abrolhos-wakelock.o $(mobile-objs) $(edgetpu-objs)
+
+# This -I is for the trace file include. It was removed from ccflags-y to avoid
+# including the header stubs.
+CFLAGS_abrolhos-fs.o := -I$(srctree)/$(src)/include

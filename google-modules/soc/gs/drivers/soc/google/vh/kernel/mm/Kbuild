@@ -1,0 +1,6 @@
+## SPDX-License-Identifier: GPL-2.0-only
+
+ccflags-y += -I$(srctree)/drivers/dma-buf
+# vendor mm module
+obj-$(CONFIG_VH_MM) += vh_mm.o
+vh_mm-y += vh_mm_init.o cma.o pixel_mm_hint.o filemap.o

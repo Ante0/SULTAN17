@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# WiFi Performance Tracker Driver
+#
+
+config WLAN_TRACKER
+		tristate "WiFi performance tracker driver"
+		help
+		  Module for wlan performance tracker.
