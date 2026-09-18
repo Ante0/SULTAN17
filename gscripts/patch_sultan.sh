@@ -315,6 +315,9 @@ patch_vpnhide() {
         apply_patch_optional \
                 "$KERNEL_REPO" \
                 "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/net_socket.c.patch
+        apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/kernel_patches/sultan/vpnhide_fs_namei.c.patch
 }
 
 ######################################################
