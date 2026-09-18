@@ -85,7 +85,7 @@ readonly PATCHES2_REPO="https://github.com/Ante0/fix_patches"
 readonly NOMOUNT_REPO="https://github.com/maxsteeel/nomount"
 readonly NOMOUNT_BRANCH="dev"
 
-readonly VPNHIDE_REPO="https://github.com/soranerai/vpnhide_next_backend"
+readonly VPNHIDE_REPO="https://github.com/okhsunrog/vpnhide"
 readonly VPNHIDE_BRANCH="main"
 
 ###############################################################################
