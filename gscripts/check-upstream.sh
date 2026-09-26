@@ -156,7 +156,7 @@ EOF
 
 ##KERNELSU
     if [[ "${OLD_KSU}" != "${NEW_KSU}" ]]; then
-        BUILD_VARIANTS+=(ksu-susfs)
+        BUILD_VARIANTS+=(ksu-susfs ksu-susfs-vpnhide)
 
         SHORT_SHA="${NEW_KSU:0:7}"
 
@@ -170,7 +170,7 @@ EOF
 
 ### KERNELSU-NEXT
     if [[ "${OLD_NEXT}" != "${NEW_NEXT}" ]]; then
-        BUILD_VARIANTS+=(ksu-next-susfs)
+        BUILD_VARIANTS+=(ksu-next-susfs ksu-next-susfs-vpnhide)
 
 	SHORT_SHA="${NEW_NEXT:0:7}"
 
@@ -184,7 +184,7 @@ EOF
 
 ###SUSFS
     if [[ "${OLD_SUSFS}" != "${NEW_SUSFS}" ]]; then
-        BUILD_VARIANTS+=(ksu-susfs ksu-next-susfs)
+        BUILD_VARIANTS+=(ksu-susfs ksu-next-susfs ksu-susfs-vpnhide ksu-next-susfs-vpnhide)
 
 	SHORT_SHA="${NEW_SUSFS:0:7}"
 
