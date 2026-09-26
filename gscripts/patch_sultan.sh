@@ -276,6 +276,11 @@ patch_vpnhide() {
 	msg "Applying VPNHide"
 	cp "$KERNEL_REPO"/vpnhide/builtin/include/linux/vpnhide.h "$KERNEL_REPO"/include/linux/
 	cp -r "$KERNEL_REPO"/vpnhide/builtin/security/vpnhide "$KERNEL_REPO"/security/
+	mkdir "$KERNEL_REPO"/security/vpnhide/shared/
+	mkdir "$KERNEL_REPO"/security/vpnhide/generated/
+	cp "$KERNEL_REPO"/vpnhide/kmod/shared/vpnhide_logic.h "$KERNEL_REPO"/security/vpnhide/shared/
+	cp "$KERNEL_REPO"/vpnhide/kmod/generated/iface_lists.h "$KERNEL_REPO"/security/vpnhide/generated/
+	cp "$KERNEL_REPO"/vpnhide/kmod/generated/hook_ids.h "$KERNEL_REPO"/security/vpnhide/generated/
 	apply_patch_optional \
                 "$KERNEL_REPO" \
                 "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/fs_namei.c.patch
@@ -315,9 +320,17 @@ patch_vpnhide() {
         apply_patch_optional \
                 "$KERNEL_REPO" \
                 "$KERNEL_REPO"/vpnhide/builtin/versions/android14-6.1/net_socket.c.patch
+		msg "Fix namei.c, security/Makefile and security/Kconfig"
         apply_patch_optional \
                 "$KERNEL_REPO" \
                 "$KERNEL_REPO"/kernel_patches/sultan/vpnhide_fs_namei.c.patch
+		apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/kernel_patches/sultan/vpnhide_security_Kconfig.patch
+		apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/kernel_patches/sultan/vpnhide_security_Makefile.patch 
+		
 }
 
 ######################################################
