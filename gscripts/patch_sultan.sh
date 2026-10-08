@@ -197,10 +197,15 @@ patch_susfs_ksu() {
 		"$KERNEL_REPO" \
 		"$KERNEL_REPO/susfs4ksu/kernel_patches/50_add_susfs_in_gki-android14-6.1.patch"
 
-	msg "Applying SUSFS KernelSU patch"
+#	msg "Applying SUSFS KernelSU patch"
+#	apply_patch_optional \
+#		"$KERNEL_REPO/KernelSU" \
+#		"$KERNEL_REPO/susfs4ksu/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch"
+
+	msg "Applying the SIMON IS ON VACATION SUSFS KernelSU patch"
 	apply_patch_optional \
 		"$KERNEL_REPO/KernelSU" \
-		"$KERNEL_REPO/susfs4ksu/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch"
+		"$KERNEL_REPO/kernel_patches/ksu/susfs_fix_patches/susfs4ksu.patch"
 }
 
 patch_susfs_ksu_next() {
@@ -213,9 +218,15 @@ patch_susfs_ksu_next() {
         "$KERNEL_REPO" \
         "$KERNEL_REPO/susfs4ksu/kernel_patches/50_add_susfs_in_gki-android14-6.1.patch"
 
+#	msg "Applying SUSFS KernelSU patch"
+#	apply_patch_optional \
+#		"$KERNEL_REPO/KernelSU-Next" \
+#		"$KERNEL_REPO/susfs4ksu/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch"
+
+	msg "Applying the SIMON IS ON VACATION SUSFS KernelSU patch"
 	apply_patch_optional \
 		"$KERNEL_REPO/KernelSU-Next" \
-		"$KERNEL_REPO/susfs4ksu/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch"
+		"$KERNEL_REPO/kernel_patches/ksu/susfs_fix_patches/susfs4ksu.patch"
 
 	msg "Applying KernelSU-Next compatibility fixes"
 
