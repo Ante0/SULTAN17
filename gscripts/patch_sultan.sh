@@ -400,6 +400,11 @@ if ! grep -q "^CONFIG_KSU_SUSFS=y$" "$DEFCONFIG"; then
         echo "CONFIG_KSU_SUSFS=y" >> "$DEFCONFIG"
 fi
 
+#preinit support
+if ! grep -q "^CONFIG_HEADERS_INSTALL=y$" "$DEFCONFIG"; then
+		echo "CONFIG_HEADERS_INSTALL=y" >> "$DEFCONFIG"
+fi
+
 #nomount
 if ! grep -q "^CONFIG_NOMOUNT=y$" "$DEFCONFIG"; then
         echo "CONFIG_NOMOUNT=y" >> "$DEFCONFIG"
