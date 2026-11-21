@@ -338,6 +338,9 @@ patch_vpnhide() {
 		apply_patch_optional \
                 "$KERNEL_REPO" \
                 "$KERNEL_REPO"/kernel_patches/sultan/vpnhide_security_Makefile.patch
+		apply_patch_optional \
+                "$KERNEL_REPO" \
+                "$KERNEL_REPO"/kernel_patches/sultan/vpnhide_readdir.c.patch
 }
 
 ######################################################
